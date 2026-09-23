@@ -34,8 +34,7 @@ self-healing, long runs: MCP.
 2. Open the two inputs you use all day:
    - [`spec/`](../spec/) — what the demo app **should** do: eight stories, `FD-01` … `FD-08`.
      Expected results come from here, not from what the app shows.
-   - [`experiments/`](../experiments/) — the four Zoo exhibits, and the optional
-     [API experiment](../experiments/2_API/).
+   - [`experiments/`](../experiments/) — the four Zoo exhibits.
 3. At the break, fix anything that is still red in `npm run verify`.
 
 ## Where files go

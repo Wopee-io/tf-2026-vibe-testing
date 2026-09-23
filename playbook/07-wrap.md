@@ -32,5 +32,4 @@ You have your three Monday lines on paper.
 
 ## If stuck
 
-Rerunning the day at home? Start at the [agenda](README.md), and try the optional
-[API experiment](../experiments/2_API/).
+Rerunning the day at home? Start at the [agenda](README.md).

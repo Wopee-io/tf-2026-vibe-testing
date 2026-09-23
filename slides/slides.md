@@ -475,31 +475,6 @@ lines:
 -->
 
 ---
-block: stack
----
-
-# API testing with AI agents: <span class="y">an honest map</span>
-
-Foodora has an API too — on another host. The UI's traffic shows you where: <code>GET https://&lt;another host&gt;/rest/v1/restaurants</code>
-
-<div class="cards c3">
-<div class="card"><div class="n">WORKS TODAY</div><h3>Tests from real traffic</h3><p>Show the agent one captured request. Status, shape, filters, errors — written in minutes.</p></div>
-<div class="card"><div class="n">WITH CARE</div><h3>Keys and shared data</h3><p>A public key is fine in a test. A secret key never goes in a prompt — and an agent will happily write to a shared database.</p></div>
-<div class="card dark"><div class="n">NOT YET</div><h3>Knowing what is right</h3><p>The agent asserts whatever the API returns. Whether that is correct still needs a spec — and a human.</p></div>
-</div>
-
-<div class="banner">Best use: the API as a <em>second source of truth</em> for what the UI shows.</div>
-
-<p class="text-lg text-center mt-3">Try it: <code>experiments/2_API</code> — optional, at home or if we have time.</p>
-
-<!--
-09:50 — 2 minutes. If running late, skip it and mention the optional experiment in the wrap-up.
-The banner is the point: an API test that checks the API against itself proves little. The API
-knows what the UI should show — test the UI against it. What that finds is the experiment, and
-material for the Build.
--->
-
----
 layout: pause
 block: break1
 what: Coffee break

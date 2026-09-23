@@ -29,8 +29,7 @@ exists. In this repository, that fallback is always the correct form.
 
 - Every exhibit and team folder owns its `playwright.config.ts`. `cd` into it before
   `npx playwright test`; from the repository root the config is not found.
-- Write tests into that folder's `tests/`. The API experiment's tests import `test` from its
-  `fixtures.ts`. Leave `solutions/` alone.
+- Write tests into that folder's `tests/`. Leave `solutions/` alone.
 - Agent wiring runs from the **repository root**, because the editor only reads `.github/agents/`,
   `.github/prompts/`, `.vscode/mcp.json` and skills in `.github/skills/`, `.claude/skills/` or
   `.agents/skills/` there. Wire the Test Agents with `npm run agents` (Exhibit 2) or

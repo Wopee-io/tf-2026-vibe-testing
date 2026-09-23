@@ -8,7 +8,6 @@
 | [`experiments/1_Zoo/2-PlaywrightAgents/`](../experiments/1_Zoo/2-PlaywrightAgents/) | Exhibit 2 — a config, a green [seed test](../experiments/1_Zoo/2-PlaywrightAgents/tests/seed.spec.ts), and [`specs/`](../experiments/1_Zoo/2-PlaywrightAgents/specs/) for the planner |
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](../experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](../experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |
 | [`experiments/1_Zoo/4-Wopee/`](../experiments/1_Zoo/4-Wopee/) | Exhibit 4 — Wopee.io in the cloud, and as an MCP tool your agent calls |
-| [`experiments/2_API/`](../experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time |
 | [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork |
 | [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [writing a skill](skills.md), [research](research/) |
 | [`.github/skills/`](../.github/skills/) | Two skills the repository ships: [`team-setup`](../.github/skills/team-setup/SKILL.md) (fork, branch, folder, draft PR) and [`battle-setup`](../.github/skills/battle-setup/SKILL.md) (stories, new build, first run). Your team's skill lives here too, as `team-N-<name>`; skills you only try out are copied in and gitignored |
@@ -29,7 +28,7 @@ Run from the repository root.
 | `npm run browsers` | Downloads Chromium for Playwright (~150 MB) |
 | `npm run slides` | Opens the deck in your browser |
 | `npm run agents` | Wires Playwright's Test Agents into Copilot for Exhibit 2 — or `npm run agents -- teams/team-N` |
-| `npm run solutions` | Runs the four Zoo exhibits' reference solutions against the live app (the API ones run from `experiments/2_API/` with `npx playwright test solutions/`) |
+| `npm run solutions` | Runs the four Zoo exhibits' reference solutions against the live app |
 | `npm run links` | Checks every link in these docs still resolves |
 
 ## Fell behind?

@@ -7,7 +7,7 @@ try {
   process.loadEnvFile(join(__dirname, '../..', '.env'))
 } catch {}
 
-// Runs the reference solutions of the four Zoo exhibits in one go (the API ones run from experiments/2_API): `npm run solutions`.
+// Runs the reference solutions of the four Zoo exhibits in one go: `npm run solutions`.
 //
 // They live in their own config because each exhibit's own `playwright.config.ts` points at
 // `./tests` — that is where the Playwright agents write, and where your work belongs.

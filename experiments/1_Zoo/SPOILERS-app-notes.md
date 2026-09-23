@@ -389,5 +389,4 @@ That extra hop is why [`1-CodingAgent/solutions/order-a-meal.spec.ts`](1-CodingA
 
 ---
 
-Two more sections — the spec compared with the real app, and the app's API — are added after
-the workshop's Battle.
+One more section — the spec compared with the real app — is added after the workshop's Battle.

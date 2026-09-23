@@ -19,7 +19,6 @@ on the same demo app. You build the test suite, then you race to defend it.
 - Try Wopee.io as a purpose-built AI testing agent on the same app and the same task — from its own
   UI, and as an MCP tool your coding agent calls
 - Write a `SKILL.md` that encodes your team's testing knowledge so any agent can reuse it
-- Try AI-assisted API testing: the same agent concepts, one layer below the UI
 - Build a working test suite your team can actually use next week
 
 ## What you will walk away with

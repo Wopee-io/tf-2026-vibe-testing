@@ -36,7 +36,6 @@ snapshot.txt
 experiments/1_Zoo/*/tests/*.spec.ts
 experiments/1_Zoo/*/specs/*.md
 !experiments/1_Zoo/*/specs/README.md
-experiments/2_API/tests/*.spec.ts
 
 # Secrets — the Vercel AI Gateway key and the Wopee API key never land in the repo
 .env
