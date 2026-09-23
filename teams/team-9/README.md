@@ -5,7 +5,7 @@ The day's steps are in [`playbook/04-build.md`](../../playbook/04-build.md).
 
 - **Team:** Team 9
 - **Tool:** Playwright CLI + Skills
-- **Skill:** `.github/skills/team-9-my-skill/` — run it with `run team-9-my-skill`
+- **Skill:** `.github/skills/team-9-restaurant-cart/` — run it with `run team-9-restaurant-cart`
 
 ## Checklist
 
