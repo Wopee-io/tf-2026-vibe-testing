@@ -1,0 +1,229 @@
+# Worklist for spec/foodora-spec.md
+
+## FD-01 · Browse restaurants
+- [ ] FD-01-R01 · The landing page `/` lists restaurants under **Popular Restaurants**
+- [ ] FD-01-R02 · Each card shows the name, cuisines, rating, delivery time range and delivery fee (or **Free**)
+- [ ] FD-01-R03 · A card shows the restaurant's current promotion when it has one
+- [ ] FD-01-R04 · Selecting a card opens that restaurant's page
+- [ ] FD-01-R05 · **View All** shows the full list of restaurants
+- [ ] FD-01-R06 · A restaurant that does not deliver to the current address is greyed out with a *Not available at your address* badge
+- [ ] FD-01-R07 · The subtitle counts the restaurants that do not deliver (*1 don't deliver there*)
+- [ ] FD-01-R08 · A restaurant that does not deliver cannot be opened
+- [ ] ASM-FD-01-01 · Popular Restaurants may show a subset; View All shows every restaurant, including every one shown under Popular Restaurants. (high)
+- [ ] ASM-FD-01-02 · Whether View All stays on `/` or changes the route is not part of the requirement; only the resulting full list is. (high)
+- [ ] ASM-FD-01-03 · When every restaurant delivers, the subtitle shows no "don't deliver there" count. (med)
+- [ ] ASM-FD-01-04 · The subtitle reads "<n> don't deliver there", where n equals the number of greyed-out cards. (med)
+- [ ] ASM-FD-01-05 · A direct link to a restaurant that does not deliver does not let the customer order from it: it shows no menu with working add buttons (a not-available message or the 404 page is fine). (med)
+- [ ] ASM-FD-01-06 · Selecting a greyed-out card leaves the customer on the landing page; the URL does not change to a restaurant page. (high)
+- (no test) OPEN ← GAP-FD-01-07 · Is at least one restaurant that does not deliver to the default address guaranteed in the data? (OPEN)
+- (no test) OPEN ← GAP-FD-01-08 · Which address is "current" before checkout, and does the address entered at checkout change which restaurants are available? (OPEN)
+- [ ] ASM-FD-01-09 · A card shows **Free** exactly when the delivery fee is $0.00, and never shows "$0.00" as a fee. (high)
+- (no test) ASM-FD-01-10 · Rating is shown on a 0–5 scale with one decimal. (low)
+- [ ] ASM-FD-01-11 · A restaurant has at most one current promotion, and its card shows at most one. (high)
+- [ ] ASM-FD-01-12 · A greyed-out card still shows name, cuisines, rating, delivery time range, delivery fee and its promotion if any. (high)
+- [ ] ASM-FD-01-13 · The order of restaurants is not part of the requirement. (high)
+- (no test) ASM-FD-01-14 · While loading, a loading indicator shows; on failure, an error message shows instead of an empty list. (low)
+- [ ] ASM-FD-01-15 · Every available card can be reached with Tab and opened with Enter, and has an accessible name containing the restaurant name; an unavailable card exposes its unavailable state in text. (high)
+- [ ] ASM-FD-01-16 · Back from a restaurant page returns to the landing page with the full list shown. (med)
+
+## FD-02 · Search and filter
+- [ ] FD-02-R01 · Search finds restaurants by restaurant name
+- [ ] FD-02-R02 · Search finds restaurants by dish name (*Classic Beef* finds the restaurant serving the Classic Beef Burger)
+- [ ] FD-02-R03 · Search ignores upper and lower case (*burger* and *BURGER* give the same result)
+- [ ] FD-02-R04 · Results update while the customer types
+- [ ] FD-02-R05 · Pressing **Search** gives the same result as typing
+- [ ] FD-02-R06 · Cuisine chips **All**, **Pizza**, **Burgers**, **Sushi**, **Italian**, **Mediterranean** are offered
+- [ ] FD-02-R07 · A cuisine chip shows only restaurants serving that cuisine
+- [ ] FD-02-R08 · **All** shows every restaurant
+- [ ] FD-02-R09 · A search and a selected cuisine chip apply together (with **Pizza** selected, *burger* shows only restaurants matching both)
+- [ ] FD-02-R10 · When nothing matches, the page says *No restaurants found*
+- [ ] FD-02-R11 · When nothing matches, the page shows a hint to try another search or filter
+- [ ] ASM-FD-02-01 · **All** is selected when the landing page opens. (med)
+- [ ] ASM-FD-02-02 · Search matches any contiguous part of a restaurant or dish name, not only whole words. (med)
+- [ ] ASM-FD-02-03 · Leading and trailing spaces in the search text are ignored. (med)
+- [ ] ASM-FD-02-04 · Search must find by restaurant name and dish name; whether other fields also match is not part of the requirement. (high)
+- [ ] ASM-FD-02-05 · There is no minimum: results update from the first character. (high)
+- [ ] ASM-FD-02-06 · Only *No restaurants found* is fixed text; the hint may be any text suggesting another search or filter, shown with it. (high)
+- [ ] ASM-FD-02-07 · Selecting **All** clears a cuisine filter; toggling a selected chip off by clicking it again is not required. (high)
+- [ ] ASM-FD-02-08 · Clearing the search box shows the list for the selected chip alone. (high)
+- [ ] ASM-FD-02-09 · A restaurant appears under every chip whose cuisine it lists. (high)
+- [ ] ASM-FD-02-10 · Restaurants that do not deliver are included in results, shown greyed out with the badge. (med)
+- (no test) ASM-FD-02-11 · The subtitle count follows the list currently shown. (low)
+- [ ] ASM-FD-02-12 · Search and chips work over every restaurant, not only those shown under Popular Restaurants. (high)
+- (no test) ASM-FD-02-13 · Back from a restaurant page restores the search text and chip. (low)
+- (no test) ASM-FD-02-14 · Search text and chip need not survive a reload. (low)
+- (no test) ASM-FD-02-15 · Search and chip need not be reflected in the URL. (low)
+- [ ] ASM-FD-02-16 · The order of results is not part of the requirement. (high)
+- (no test) ASM-FD-02-17 · While results load, the old list or a loading indicator shows; on failure, an error message shows. (low)
+- [ ] ASM-FD-02-18 · Results update within 2 seconds after the last keystroke, without pressing Search. (med)
+- [ ] ASM-FD-02-19 · The search box has an accessible name, and chips expose which one is selected (e.g. `aria-pressed` or `aria-selected`). (high)
+- (no test) ASM-FD-02-20 · Ignoring accents is not required. (low)
+
+## FD-03 · Restaurant menu
+- [ ] FD-03-R01 · The restaurant page `/restaurant/<id>` shows the name, cuisines, rating, delivery time, delivery fee and promotion
+- [ ] FD-03-R02 · The menu is grouped into category tabs
+- [ ] FD-03-R03 · Each dish shows name, short description, price and a quick-add **+** button
+- [ ] FD-03-R04 · Quick-add puts one of that dish into the cart
+- [ ] FD-03-R05 · Quick-add confirms it
+- [ ] FD-03-R06 · After quick-add, the cart count in the header goes up by one
+- [ ] FD-03-R07 · Selecting the dish itself opens its detail page
+- [ ] FD-03-R08 · Every button has an accessible name that says what it does, including icon-only quick-add
+- [ ] ASM-FD-03-01 · Quick-add adds the dish in its default size with no add-ons, at the price shown on the menu. (med)
+- [ ] ASM-FD-03-02 · The first category tab is selected when the page opens. (med)
+- [ ] ASM-FD-03-03 · Quick-adding a dish already in the cart with the same configuration raises that line's quantity by one; no new line appears. (med)
+- [ ] ASM-FD-03-04 · A visible confirmation (such as a toast or status message) appears after quick-add; its exact text and position are not fixed. (med)
+- [ ] ASM-FD-03-05 · Whether the cart panel opens after quick-add is not part of the requirement. (high)
+- [ ] ASM-FD-03-06 · Each activation of quick-add adds one; two clicks add two. (high)
+- (no test) ASM-FD-03-07 · No maximum is required for quick-add. (low)
+- [ ] ASM-FD-03-08 · `/restaurant/<unknown id>` shows the 404 page from FD-08. (high)
+- [ ] ASM-FD-03-09 · Selecting a tab makes that category's dishes visible; hiding the others or scrolling are both acceptable. (med)
+- [ ] ASM-FD-03-10 · Each quick-add button's accessible name contains the name of its dish. (high)
+- [ ] ASM-FD-03-11 · A dish can be focused with Tab and opened with Enter. (high)
+- (no test) ASM-FD-03-12 · Loading shows an indicator; failure shows an error message. (low)
+- [ ] ASM-FD-03-13 · The order of tabs and dishes is not part of the requirement. (high)
+- (no test) ASM-FD-03-14 · Back from a dish page restores the previously selected tab. (low)
+
+## FD-04 · Customise a dish
+- [ ] FD-04-R01 · The dish page `/product/<id>` shows the photo, description, rating, preparation time and calories
+- [ ] FD-04-R02 · **Size**: exactly one size can be picked
+- [ ] FD-04-R03 · **Add-ons**: any combination can be picked, including none
+- [ ] FD-04-R04 · **Quantity**: 1 or more
+- [ ] FD-04-R05 · The **Add to Cart** button shows the price of what is configured
+- [ ] FD-04-R06 · The Add to Cart price updates as size, add-ons or quantity change
+- [ ] FD-04-R07 · Tabs show *Ingredients*, *Reviews* and *Nutrition*
+- [ ] FD-04-R08 · The cart is reachable from the dish page
+- [ ] ASM-FD-04-01 · Button price = (base price + size surcharge + sum of selected add-on prices) × quantity. (high)
+- [ ] ASM-FD-04-02 · The button shows the price before any restaurant promotion. (high)
+- [ ] ASM-FD-04-03 · The size without a surcharge (e.g. Regular) is selected when the page opens. (med)
+- [ ] ASM-FD-04-04 · Quantity is 1 when the page opens. (high)
+- [ ] ASM-FD-04-05 · No add-on is selected when the page opens. (high)
+- (no test) ASM-FD-04-06 · No maximum is required. (low)
+- [ ] ASM-FD-04-07 · At quantity 1, **−** leaves the quantity at 1 (a disabled button or a no-op are both fine). (high)
+- [ ] ASM-FD-04-08 · If quantity can be typed, a value below 1 or non-numeric is not accepted: it is rejected or corrected to 1. (med)
+- [ ] ASM-FD-04-09 · Add to Cart shows a visible confirmation, as quick-add does. (high)
+- [ ] ASM-FD-04-10 · Where the customer lands after Add to Cart and whether choices reset is not part of the requirement. (high)
+- [ ] ASM-FD-04-11 · The header cart count rises by the quantity added. (high)
+- [ ] ASM-FD-04-12 · Each activation of Add to Cart adds the configuration once; two clicks add it twice. (med)
+- [ ] ASM-FD-04-13 · `/product/<unknown id>` shows the 404 page from FD-08. (high)
+- [ ] ASM-FD-04-14 · A dish of a restaurant that does not deliver cannot be added to the cart, even via a direct link. (med)
+- [ ] ASM-FD-04-15 · The same dish with a different size or add-ons is a separate cart line. (med)
+- [ ] ASM-FD-04-16 · The same dish with an identical configuration is merged into one line, quantities summed. (med)
+- (no test) ASM-FD-04-17 · A reload need not keep the chosen size, add-ons and quantity. (low)
+- (no test) ASM-FD-04-18 · Loading shows an indicator; failure shows an error message. (low)
+- [ ] ASM-FD-04-19 · Tests find at run time a dish with at least two sizes and at least one add-on by browsing menus; the spec's examples imply one exists. (med)
+- [ ] ASM-FD-04-20 · The order flow is landing, restaurant, dish and checkout pages; "reachable" means the header **Cart** button is present and opens the cart panel. (high)
+- (no test) ASM-FD-04-21 · Each tab shows non-empty content when selected. (low)
+- (no test) ASM-FD-04-22 · A dish without size options shows no size choice. (low)
+- [ ] ASM-FD-04-23 · Sizes are a labelled radio group, add-ons are labelled checkboxes, and the quantity buttons have accessible names. (high)
+
+## FD-05 · Cart
+- [ ] FD-05-R01 · The cart opens as a panel from the **Cart** button in the header
+- [ ] FD-05-R02 · The Cart button shows how many items are in the cart
+- [ ] FD-05-R03 · Each line shows the dish, the restaurant, the price and a quantity stepper (**−** / **+**)
+- [ ] FD-05-R04 · Each line has a way to remove it
+- [ ] FD-05-R05 · With two or more different dishes, **Clear Cart** appears and removes everything
+- [ ] FD-05-R06 · With a single dish, **Clear Cart** is not shown
+- [ ] FD-05-R07 · The summary shows **Subtotal**, **Delivery Fee**, **Service Fee** and **Total**
+- [ ] FD-05-R08 · Total = Subtotal − discount + Delivery Fee + Service Fee
+- [ ] FD-05-R09 · The Delivery Fee is the fee the restaurant advertises; **Free** means $0.00
+- [ ] FD-05-R10 · The Service Fee is a flat $1.50 per order
+- [ ] FD-05-R11 · A qualifying promotion is applied automatically (*20% OFF orders over $25* takes 20 % off the subtotal once it passes $25)
+- [ ] FD-05-R12 · The discount shows as its own line
+- [ ] FD-05-R13 · **Proceed to Checkout** takes the customer to checkout
+- [ ] FD-05-R14 · An empty cart says so
+- [ ] FD-05-R15 · An empty cart offers a way back to the restaurants
+- [ ] FD-05-R16 · An empty cart offers no way to check out
+- [ ] FD-05-R17 · The cart survives a page reload
+- [ ] ASM-FD-05-01 · The promotion applies only when the subtotal is strictly greater than $25.00. (high)
+- [ ] ASM-FD-05-02 · The discount is rounded to the cent, half up. (med)
+- [ ] ASM-FD-05-03 · The header count is the number of units: the sum of all line quantities. (high)
+- [ ] ASM-FD-05-04 · At quantity 1, **−** never produces a line with quantity 0: it either removes the line or leaves quantity 1. (med)
+- (no test) ASM-FD-05-05 · No maximum quantity per line is required. (low)
+- [ ] ASM-FD-05-06 · The discount line is labelled as a discount or with the promotion, and its amount is shown as a reduction (with a minus sign or in a discount line that Total subtracts). (med)
+- [ ] ASM-FD-05-07 · The empty cart shows text containing "empty"; the exact wording is free. (med)
+- [ ] ASM-FD-05-08 · A confirmation step before Clear Cart is allowed but not required; once done, the cart is empty. (high)
+- [ ] ASM-FD-05-09 · Whether the panel closes on Proceed to Checkout is not part of the requirement. (high)
+- [ ] ASM-FD-05-10 · Back from `/checkout` leaves the cart unchanged. (high)
+- [ ] ASM-FD-05-11 · A new tab in the same browser shows the same cart. (med)
+- (no test) ASM-FD-05-12 · The cart does not expire within a session; clearing browser data empties it. (low)
+- [ ] ASM-FD-05-13 · The cart can hold dishes from more than one restaurant. (med)
+- (no test) OPEN ← GAP-FD-05-14 · With dishes from two restaurants, is there one delivery fee or one per restaurant? (OPEN)
+- (no test) OPEN ← GAP-FD-05-15 · With dishes from several restaurants, is a promotion computed on that restaurant's items only or on the whole subtotal? (OPEN)
+- (no test) ASM-FD-05-16 · Two configurations of the same dish count as two different dishes, so Clear Cart appears. (low)
+- [ ] ASM-FD-05-17 · The order of cart lines is not part of the requirement. (high)
+- [ ] ASM-FD-05-18 · The open panel can be closed with Escape, and keyboard focus moves into it when it opens. (med)
+
+## FD-06 · Checkout
+- [ ] FD-06-R01 · The checkout page `/checkout` has a **Delivery Address** form, a **Payment Method** choice and an **Order Summary**
+- [ ] FD-06-R02 · The Order Summary has the same lines as the cart
+- [ ] FD-06-R03 · The form has Full Name, Street Address, Apt / Suite, City, Phone Number and Delivery Instructions
+- [ ] FD-06-R04 · An order is placed with only the required fields filled (Apt / Suite and Delivery Instructions are optional)
+- [ ] FD-06-R05 · With a required field empty, **Place Order** places no order
+- [ ] FD-06-R06 · Each missing required field shows a message saying what is needed
+- [ ] FD-06-R07 · Payment method is one of **Credit / Debit Card**, **Cash on Delivery** or **Apple Pay**
+- [ ] FD-06-R08 · **Credit / Debit Card** is selected by default
+- [ ] FD-06-R09 · Checkout with an empty cart shows an empty state with a way back to the restaurants, never a form that could place an order
+- [ ] ASM-FD-06-01 · A required field containing only spaces is not filled in. (high)
+- (no test) OPEN ← GAP-FD-06-02 · What format must a phone number have to be accepted? (OPEN)
+- (no test) ASM-FD-06-03 · Full Name and City accept any non-blank value. (low)
+- (no test) ASM-FD-06-04 · No maximum lengths are required. (low)
+- [ ] ASM-FD-06-05 · Each missing required field shows a visible text message next to that field; the wording is free but must be text. (high)
+- [ ] ASM-FD-06-06 · Messages must show at least after Place Order; showing them earlier is allowed. (high)
+- [ ] ASM-FD-06-07 · After a failed Place Order, the values already entered are kept. (med)
+- [ ] ASM-FD-06-08 · With Apple Pay selected, Place Order places the order like the other methods; no real payment flow is required. (med)
+- [ ] ASM-FD-06-09 · A double click on Place Order places exactly one order. (med)
+- [ ] ASM-FD-06-10 · After an order is placed, going Back to `/checkout` cannot place the same order again: checkout shows its empty-cart state. (med)
+- (no test) ASM-FD-06-11 · The address need not survive a reload. (low)
+- [ ] ASM-FD-06-12 · The Order Summary includes the discount line whenever the cart shows one, with the same amount. (high)
+- [ ] ASM-FD-06-13 · If the cart is changed while on checkout, the Order Summary follows the cart. (med)
+- (no test) ASM-FD-06-14 · While placing, Place Order is disabled or shows progress; on failure an error message shows and no confirmation. (low)
+- [ ] ASM-FD-06-15 · No card details are required: with the default card option and a valid address, the order can be placed. (med)
+- [ ] ASM-FD-06-16 · Every field has a programmatic label; required fields are marked by more than colour; each message is tied to its field. (high)
+
+## FD-07 · Confirmation and tracking
+- [ ] FD-07-R01 · After Place Order, the customer sees **Order Confirmed!**, a line saying the order was placed, the estimated delivery time, the order number and the total
+- [ ] FD-07-R02 · Order numbers look like `FDR-` followed by six upper-case letters or digits
+- [ ] FD-07-R03 · Every order gets a new order number
+- [ ] FD-07-R04 · **Track My Order** opens the tracking page
+- [ ] FD-07-R05 · **Back to Home** returns to the landing page
+- [ ] FD-07-R06 · The tracking page `/order/<order number>` shows the order number, the **total paid** and the estimated delivery
+- [ ] FD-07-R07 · The tracking page shows five stages in order: Order Confirmed → Preparing → Ready for Pickup → On the Way → Delivered
+- [ ] FD-07-R08 · An order number that was never placed does not show a tracking page
+- [ ] FD-07-R09 · **Total paid** is the amount of the placed order
+- [ ] FD-07-R10 · **Total paid** cannot be changed by editing the address in the browser
+- (no test) ASM-FD-07-01 · Only the order number exactly as issued is required to work in the URL. (low)
+- (no test) ASM-FD-07-02 · The estimated delivery is shown as a time or time range; its derivation is not fixed. (low)
+- [ ] ASM-FD-07-03 · Only **Order Confirmed!** is fixed text; the line saying the order was placed may be worded freely. (high)
+- [ ] ASM-FD-07-04 · The cart is emptied after a successful order. (med)
+- [ ] ASM-FD-07-05 · Right after placing, *Order Confirmed* is the current (or completed) stage and *Delivered* is not; advancing over time is not required. (med)
+- [ ] ASM-FD-07-06 · Reload or Back on the confirmation page never places a second order. (med)
+- [ ] ASM-FD-07-07 · An order number never placed shows the 404 page or a not-found message, and never stages or a total. (high)
+- [ ] ASM-FD-07-08 · A tracking link keeps working after reload and in a fresh browser context. (med)
+- (no test) ASM-FD-07-09 · Loading shows an indicator; failure shows an error message. (low)
+- (no test) ASM-FD-07-10 · Later stages are not reachable in tests; only their presence and order are checked. (low)
+- [ ] ASM-FD-07-11 · Two orders placed one after another get different numbers, both matching `FDR-` + six upper-case letters or digits. (high)
+- [ ] ASM-FD-07-12 · "the address in the browser" is the URL: changing or adding query parameters or path parts on the tracking URL does not change **total paid**. (high)
+- [ ] ASM-FD-07-13 · The current and completed stages are conveyed in text or accessible state, not by colour alone. (high)
+
+## FD-08 · Page not found
+- [ ] FD-08-R01 · Any address that is not a Foodora page shows **404 — Page not found**
+- [ ] FD-08-R02 · The 404 page has a **Return to Home** link that leads to the landing page
+- [ ] ASM-FD-08-01 · `/restaurant/<unknown id>` and `/product/<unknown id>` show the 404 page. (high)
+- [ ] ASM-FD-08-02 · The server answers an unknown address with HTTP status 404. (med)
+- [ ] ASM-FD-08-03 · Paths are case-sensitive: `/CHECKOUT` shows the 404 page. Trailing slashes are not checked. (med)
+- [ ] ASM-FD-08-04 · The page must show "404" and "Page not found"; the dash between them is not checked. (high)
+- [ ] ASM-FD-08-05 · The cart is kept after Return to Home. (high)
+
+## ALL · Cross-cutting
+- [ ] ASM-ALL-01 · Only data named in rules is fixed: the cuisine chips, the *Classic Beef Burger*, the *20% OFF orders over $25* promotion and the $1.50 service fee. Everything else is read from the app at run time. (high)
+- [ ] ASM-ALL-02 · Each test starts in a fresh browser context, which gives an empty cart. (med)
+- (no test) ASM-ALL-03 · Desktop Chromium is the target; other browsers and mobile are not required. (low)
+- [ ] ASM-ALL-04 · The accessible-name rule of FD-03 applies to every button on every page. (high)
+- [ ] ASM-ALL-05 · The target is WCAG 2.2 level AA. (high)
+- [ ] ASM-ALL-06 · The price charged is computed by the server, not taken from what the page sends. (med)
+- [ ] ASM-ALL-07 · Anyone with an order number may see its tracking page. (med)
+- (no test) ASM-ALL-08 · Pages load within 3 seconds. (low)
+- [ ] ASM-ALL-09 · All amounts are US dollars, shown as `$` followed by a number with exactly two decimals, except a zero delivery fee shown as **Free**. (high)
+- (no test) ASM-ALL-10 · Times are shown in the browser's local time zone. (low)
+- [ ] ASM-ALL-11 · The total matches to the cent across cart, checkout, confirmation and tracking. (high)
+- (no test) ASM-ALL-12 · No API contract is part of the requirement. (low)
