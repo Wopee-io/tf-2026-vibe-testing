@@ -1,5 +1,5 @@
 ---
-name: team-1-spec-tests
+name: team-1-step3-spec-tests
 description: Generates Playwright tests in teams/team-1/tests from a spec, its gaps report and its assumptions (one test per rule, one per assumption), fanning the stories out to parallel subagents, then runs the suite and reports findings. Use when asked to write, generate or extend tests for a spec or a story, to cover new stories, or in the Battle.
 ---
 
@@ -12,7 +12,7 @@ subagent, then merge and report. The subagents write the tests.
 
 - **Spec:** the first path after the skill name; with none, `spec/foodora-spec.md`. `<stem>` is its
   file name without `.md`.
-- **Story filter** (optional): a story ID after the path, e.g. `run team-1-spec-tests spec/foodora-spec.md FD-05`.
+- **Story filter** (optional): a story ID after the path, e.g. `run team-1-step3-spec-tests spec/foodora-spec.md FD-05`.
   Only that story gets a subagent.
 - `teams/team-1/specs/<stem>.gaps.md` and `teams/team-1/specs/<stem>.assumptions.md`.
 - The app address is `$FOODORA_URL`, falling back to `https://foodora.lovable.app`.
@@ -22,8 +22,8 @@ Run every command from the **repository root**, exactly as written.
 ## Steps
 
 1. **Check the inputs.** A missing gaps report: print
-   `FAIL: run team-1-spec-gaps <spec path> first.` A missing assumptions file: print
-   `FAIL: run team-1-spec-assumptions <spec path> first.` Then stop.
+   `FAIL: run team-1-step1-spec-gaps <spec path> first.` A missing assumptions file: print
+   `FAIL: run team-1-step2-spec-assumptions <spec path> first.` Then stop.
 2. **Worklist.** Write `teams/team-1/specs/<stem>.worklist.md` in this format, for every story
    (the filter does not shorten the worklist):
 
@@ -71,7 +71,7 @@ Run every command from the **repository root**, exactly as written.
      duplicates), update the imports in that story's test file, and rerun the smoke test from step 3.
    - Run the full suite once:
      `npx playwright test --config=teams/team-1/playwright.config.ts`
-6. **Coverage check.** Run `bash .github/skills/team-1-spec-tests/scripts/check-coverage.sh <stem> [story]`.
+6. **Coverage check.** Run `bash .github/skills/team-1-step3-spec-tests/scripts/check-coverage.sh <stem> [story]`.
    It prints every `- [ ]` item of the worklist that no test title names, and exits 1 if any.
    Missing items: one more subagent per story with only those items, then run the script again.
    Still missing after that: list them in the report as not covered.

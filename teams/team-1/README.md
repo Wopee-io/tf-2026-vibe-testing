@@ -6,9 +6,9 @@ only inside it. The day's steps are in [`playbook/04-build.md`](../../playbook/0
 - **Team:** Team 1
 - **Tool:** TBD (vyberieme v bloku Build)
 - **Skills:** a chain of three, each leaves a file in [`specs/`](specs/) for the next one:
-  1. `run team-1-spec-gaps [spec]` → `specs/<stem>.gaps.md`: the spec's blind spots
-  2. `run team-1-spec-assumptions [spec]` → `specs/<stem>.assumptions.md`: one a-priori assumption per gap
-  3. `run team-1-spec-tests [spec] [FD-xx]` → `tests/`: one test per rule and per assumption, written
+  1. `run team-1-step1-spec-gaps [spec]` → `specs/<stem>.gaps.md`: the spec's blind spots
+  2. `run team-1-step2-spec-assumptions [spec]` → `specs/<stem>.assumptions.md`: one a-priori assumption per gap
+  3. `run team-1-step3-spec-tests [spec] [FD-xx]` → `tests/`: one test per rule and per assumption, written
      by parallel subagents, plus `specs/<stem>.results.md`
 
   `[spec]` defaults to `spec/foodora-spec.md`; in the Battle pass `spec/battle/<story>.md`.
@@ -21,7 +21,7 @@ only inside it. The day's steps are in [`playbook/04-build.md`](../../playbook/0
 - [ ] Tests cover the core user flows (`FD-01` … `FD-08`), and each test names its `FD-xx`
 - [ ] App address only in `baseURL` — tests use relative paths like `page.goto('/checkout')`
 - [x] `SKILL.md` drafted — **14:00**
-- [ ] Cold run passes: fresh agent session, only the `SKILL.md` and `run team-1-spec-gaps` → `-assumptions` → `-tests`, no follow-up prompts — **14:20**
+- [ ] Cold run passes: fresh agent session, only the `SKILL.md` and `run team-1-step1-spec-gaps` → `step2` → `step3`, no follow-up prompts — **14:20**
 - [ ] Pushed, pull request up to date — **14:30**
 
 ## Run

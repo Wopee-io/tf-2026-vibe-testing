@@ -1,11 +1,11 @@
 ---
-name: team-1-spec-assumptions
-description: Answers every gap in a spec's gaps report with one explicit a-priori assumption (decision, rationale, confidence, Given/When/Then), or marks it OPEN, and writes the assumptions file tests are built on. Use when asked to fill spec gaps, make assumptions, decide open questions, or after team-1-spec-gaps.
+name: team-1-step2-spec-assumptions
+description: Answers every gap in a spec's gaps report with one explicit a-priori assumption (decision, rationale, confidence, Given/When/Then), or marks it OPEN, and writes the assumptions file tests are built on. Use when asked to fill spec gaps, make assumptions, decide open questions, or after team-1-step1-spec-gaps.
 ---
 
 # Fill the spec's gaps with a-priori assumptions
 
-Input is a spec and its gaps report from `team-1-spec-gaps`. Output is one decision per gap, written
+Input is a spec and its gaps report from `team-1-step1-spec-gaps`. Output is one decision per gap, written
 down so a test can check it and a product owner can overrule it.
 
 ## Input and output
@@ -19,7 +19,7 @@ down so a test can check it and a product owner can overrule it.
 ## Steps
 
 1. Read the spec and the gaps report. **No gaps report: stop.** Print
-   `FAIL: teams/team-1/specs/<stem>.gaps.md is missing. Run team-1-spec-gaps <spec path> first.`
+   `FAIL: teams/team-1/specs/<stem>.gaps.md is missing. Run team-1-step1-spec-gaps <spec path> first.`
    and do nothing else.
 2. Read [`references/assumption-rules.md`](references/assumption-rules.md): where a decision may
    come from, in which order, and how confident it is.

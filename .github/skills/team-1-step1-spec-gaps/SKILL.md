@@ -1,16 +1,16 @@
 ---
-name: team-1-spec-gaps
+name: team-1-step1-spec-gaps
 description: Reads a product spec and lists its blind spots (rules left undefined, ambiguous, contradictory or untestable) in a gaps report, one row per gap, per story. Use when asked to review a spec, find gaps, holes or blind spots in requirements, or before writing tests for new stories.
 ---
 
 # Find the blind spots in a spec
 
 You read a spec and write down every question a tester would have to answer before a test can
-decide PASS or FAIL. You do not answer them: that is `team-1-spec-assumptions`, the next step.
+decide PASS or FAIL. You do not answer them: that is `team-1-step2-spec-assumptions`, the next step.
 
 ## Input and output
 
-- **Spec:** the path given after the skill name (`run team-1-spec-gaps spec/battle/FD-09.md`).
+- **Spec:** the path given after the skill name (`run team-1-step1-spec-gaps spec/battle/FD-09.md`).
   With no path, use `spec/foodora-spec.md`. Several paths or a folder: one report per file.
 - **Report:** `teams/team-1/specs/<stem>.gaps.md`, where `<stem>` is the spec's file name without
   `.md`. Create the folder if needed. Overwrite an existing report.
