@@ -9,7 +9,7 @@
 | [`experiments/1_Zoo/3-PlaywrightCLI/`](../experiments/1_Zoo/3-PlaywrightCLI/) | Exhibit 3 — a [hand-written skill](../experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md) to copy and break |
 | [`experiments/1_Zoo/4-Wopee/`](../experiments/1_Zoo/4-Wopee/) | Exhibit 4 — Wopee.io in the cloud, and as an MCP tool your agent calls |
 | [`experiments/2_API/`](../experiments/2_API/) | **Optional** — API testing with an agent, at home or if there is time |
-| [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork |
+| [`teams/`](../teams/) | Team work after lunch. Copy [`_template/`](../teams/_template/) to `teams/team-N/` in your team's fork, or in your own clone when you work alone |
 | [`docs/`](.) | [About the workshop](workshop.md), [setup troubleshooting](setup-troubleshooting.md), [writing a skill](skills.md), [research](research/) |
 | [`.github/skills/`](../.github/skills/) | Three skills the repository ships: [`foodora-smoke`](../.github/skills/foodora-smoke/SKILL.md) (the 09:38 live demo), [`team-setup`](../.github/skills/team-setup/SKILL.md) (fork, branch, folder, draft PR) and [`battle-setup`](../.github/skills/battle-setup/SKILL.md) (stories, new build, first run). Your team's skill lives here too, as `team-N-<name>`; skills you only try out are copied in and gitignored |
 | [`.vscode/settings.json`](../.vscode/settings.json) | The workspace settings: Git Bash on Windows (the skills' commands are bash — a PowerShell terminal breaks them), Markdown opens rendered, autosave, MCP servers off until an exhibit starts them, no Integrated Browser tools for the agent, `npx playwright`, read-only `git`/`gh` commands (`git status`, `git fetch`, `git branch -vv`, `gh auth status`, `gh pr list` …) and harmless shell helpers (`cd`, `ls`, `pwd`, `test`, and `printf`/`echo`/`jq` without a `>` redirect) pre-approved — anything that changes a branch or GitHub still asks, longer agent turns, `solutions/` hidden from search |
@@ -37,7 +37,7 @@ Run from the repository root.
 Exhibits 1 and 2 have a `solutions/` folder — [1](../experiments/1_Zoo/1-CodingAgent/solutions/),
 [2](../experiments/1_Zoo/2-PlaywrightAgents/solutions/) — and Exhibit 3 has a
 [worked skill](../experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md). Exhibit 4 runs in
-the cloud; its shortcut is a shared project with a finished run. They are what a good run
+the cloud; its shortcut is to let your own project's analysis finish on its own. They are what a good run
 produces, not a thing to copy blindly.
 
 The verified notes behind those solutions are in

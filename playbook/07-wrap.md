@@ -21,8 +21,8 @@
 
    Then share it: read it to your neighbour now, and take it to your team on Monday.
 5. Questions.
-6. **Feedback, 2 minutes:** [survey.tesena.com/zs/kIC5Nn](https://survey.tesena.com/zs/kIC5Nn) — or
-   scan the QR on the last slide.
+6. **Feedback, 2 minutes:** tell me what worked and what did not, or bring the workshop to your
+   team: [wopee.io/marcel](https://wopee.io/marcel).
 
 ## Where files go
 
@@ -30,7 +30,7 @@ Your work stays in your fork and your pull request. Keep them after today.
 
 ## Done when
 
-You have your three Monday lines on paper, and the feedback form is sent.
+You have your three Monday lines on paper.
 
 ## If stuck
 

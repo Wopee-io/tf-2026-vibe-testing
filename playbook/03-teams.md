@@ -26,6 +26,18 @@
 
 ## Steps
 
+**On your own?** Skip the fork and the pull request: nothing goes back to Wopee-io's repository.
+In your clone, make a branch and a folder, and keep your work local (or push it to your own fork):
+
+```bash
+git switch -c team-1
+cp -r teams/_template teams/team-1
+mkdir -p .github/skills/team-1-my-skill
+mv teams/team-1/SKILL.md .github/skills/team-1-my-skill/SKILL.md
+```
+
+Then go on with step 3 below, and use `1` wherever the pages say `N`.
+
 Pick **one laptop** as your team's driver. It owns the fork. Do this in the repository you cloned
 this morning (`N` is your team number).
 

@@ -1,7 +1,9 @@
-# Speed Gap Battle — private pack
+# Speed Gap Battle: facilitator pack
 
-Everything here stays out of the attendee repo until 15:15 on 24 September. The repo is (or will
-be) public; these files give the Battle away.
+How the Battle build was made, and its answer key. Running the Battle on your own? Do it first,
+then read [`answer-key.md`](answer-key.md): these files give the planted bugs away. Running it for
+your own group? The prompts below rebuild the new app version, and the timeline is how the live
+day ran it.
 
 | File | What it is | When |
 | --- | --- | --- |

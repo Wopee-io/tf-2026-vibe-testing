@@ -232,10 +232,10 @@ and score it honestly. Especially this one.
 2. **Check [troubleshooting](../../../docs/setup-troubleshooting.md#on-the-workshop-day)** — the workshop-day table.
 3. **Raise your hand.** Do not spend 10 of your 20 minutes on setup.
 
-**Shortcut:** use the shared Foodora project. The presenter writes its name on the whiteboard and
-adds you to it — give them the email you signed up with. It already has a finished analysis and a
-run whose verdict gate disagreed with the agent — open its report and decide who was right.
-For the bonus, the whiteboard also lists that project's `WOPEE_PROJECT_UUID` and a workshop
-`WOPEE_API_KEY` — put them in `.env` as in step 3, and nowhere else: never into a tracked file.
+**Shortcut:** create the project (step 1), answer its one question, and let it run while you do
+something else. In about five minutes it has a finished analysis and a run of its own: open that
+run's report and decide whether the verdict is right. The account is free at
+[wopee.io](https://wopee.io). For the bonus, generate your own `WOPEE_PROJECT_UUID` and
+`WOPEE_API_KEY` as in step 3 of the bonus, and put them in `.env`, never into a tracked file.
 
-Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#set-up-your-laptop)

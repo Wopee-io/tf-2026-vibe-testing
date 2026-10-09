@@ -26,7 +26,8 @@ the one folder under `teams/` that is not `_template`. Ask only if neither tells
    No `upstream` remote (`git remote -v`)? Then this clone never forked and Wopee-io is `origin`:
    `git pull --no-rebase --no-edit origin main`.
 3. **Check they arrived:** `ls spec/battle/` must list the stories for `FD-09`, `FD-10` and
-   `FD-11`. Empty or missing? Stop: the presenter has not published them yet — say so.
+   `FD-11`. Empty or missing? Stop: the pull did not bring them, so this branch is not based on
+   Wopee-io's `main`. Say so.
 4. **Point the suite at the new build.** The last line of `.env` at the repository root is
    `# FOODORA_URL=https://foodora-new.lovable.app`. Uncomment it with this command, and never open
    or print `.env` — it holds keys, and an edit or a read would put them on screen:

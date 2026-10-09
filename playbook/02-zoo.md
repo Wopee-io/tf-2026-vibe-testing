@@ -59,7 +59,8 @@ filled, and one thing each tool got wrong.
 - Exhibits 1 and 2: read the exhibit's `solutions/` and run them with `npm run solutions`.
 - Exhibit 3: compare with the worked skill in
   [`skills/foodora-order/`](../experiments/1_Zoo/3-PlaywrightCLI/skills/foodora-order/SKILL.md).
-- Exhibit 4: use the shared project on the whiteboard.
+- Exhibit 4: let your own project's analysis run on its own (about five minutes), then read the
+  run it produced. See the [Exhibit 4 shortcut](../experiments/1_Zoo/4-Wopee/README.md#if-you-get-stuck).
 
 The answer key is [`SPOILERS-app-notes.md`](../experiments/1_Zoo/SPOILERS-app-notes.md) — read it
 after the Zoo, not before.
