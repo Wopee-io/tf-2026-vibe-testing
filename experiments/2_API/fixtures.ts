@@ -13,7 +13,7 @@ export const test = base.extend<{}, { foodora: FoodoraApi; foodoraApi: APIReques
       await page.goto(workerInfo.project.use.baseURL ?? 'https://foodora.lovable.app')
       const call = await firstCall
       await page.close()
-      await use({ url: new URL(call.url()).origin, key: call.headers()['apikey'] })
+      await use({ url: new URL(call.url()).origin, key: process.env.FOODORA_API_KEY || call.headers()['apikey'] })
     },
     { scope: 'worker' },
   ],

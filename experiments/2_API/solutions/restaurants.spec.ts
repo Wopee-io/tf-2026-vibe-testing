@@ -2,8 +2,8 @@ import { test, expect } from '../fixtures'
 
 // Reference solution for the optional API experiment. Every call is a read-only GET.
 //
-// These tests check the API against itself. The reason to test an API at all — using it as a
-// second source of truth for what the UI shows — is left for you to write.
+// The first four tests check the API against itself. The last one is the reason to test an API
+// at all: it uses the API as a second source of truth and catches the cart lying about it.
 
 type Restaurant = { id: string; slug: string; name: string; rating: number; delivery_fee: string; categories: string[] }
 
@@ -47,4 +47,22 @@ test('a request without the key is refused', async ({ foodora, playwright }) => 
   const res = await anonymous.get('/rest/v1/restaurants?select=name')
   expect(res.status()).toBe(401)
   await anonymous.dispose()
+})
+
+test('the cart charges the delivery fee the API advertises (FD-05)', async ({ foodoraApi, page }) => {
+  // Known bug, spec FD-05: the cart always charges $2.99. When this starts passing, the bug is
+  // fixed — Playwright will then report this test as "expected to fail", and you remove this line.
+  test.fail()
+
+  const [pizzaCorner]: Restaurant[] = await (
+    await foodoraApi.get('/rest/v1/restaurants?select=name,delivery_fee&slug=eq.2')
+  ).json()
+  expect(pizzaCorner.delivery_fee).toBe('Free')
+
+  await page.goto('/restaurant/2')
+  await page.getByRole('link', { name: /Margherita/ }).getByRole('button').click()
+  await page.getByRole('button', { name: 'Cart 1' }).click()
+
+  const fee = page.getByRole('dialog').getByText('Delivery Fee').locator('..')
+  await expect(fee).toContainText(/Free|\$0\.00/, { timeout: 5_000 })
 })

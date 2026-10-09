@@ -1,9 +1,9 @@
 # Setup troubleshooting
 
-Find the step that failed in the [setup checklist](../README.md#get-ready-for-the-workshop), fix it
-here, then run `npm run verify` again. It checks steps 5, 9 and 10 — Node, the install, Playwright,
-the browser and the app. Steps 3, 6, 7 and 8 you confirm by hand. When all seven checks are green
-and those four are done, you are ready.
+Find the step that failed in the [setup checklist](../README.md#set-up-your-laptop), fix it
+here, then run `npm run verify` again. It checks steps 3, 6 and 7: Node, the install, Playwright,
+the browser and the app. Steps 1, 2, 4 and 5 you confirm by hand, and step 8 only matters for
+Exhibit 4. When all seven checks are green and those are done, you are ready.
 
 ## Windows: do these first
 
@@ -46,12 +46,12 @@ Keep VS Code's terminal on Git Bash either way. The commands your agent runs —
 skills and from the exhibits — are bash (`${FOODORA_URL:-…}`, `mkdir -p`, `cp -r`). They work in
 Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell and they break.
 
-## Step 3 — Install the tools
+## Step 1: Install the tools
 
 | What you see | Fix |
 | --- | --- |
 | `git`, `node` or `gh` "is not recognized" / "command not found" | Install it (see [Windows: do these first](#windows-do-these-first)), then restart VS Code completely. |
-| The installer asks for admin rights you do not have | Tell me in the form or on LinkedIn **before** the workshop. You can pair with a neighbour on the day, but you will get more out of it on your own laptop. |
+| The installer asks for admin rights you do not have | Ask your IT team, or use a laptop where you have them. |
 | `gh auth login` asks how to authenticate | Choose **GitHub.com**, **HTTPS**, **Login with a web browser**. |
 | `gh pr create` says *No default remote repository has been set* | Your clone has two remotes (your fork and Wopee-io). Run `gh repo set-default Wopee-io/tf-2026-vibe-testing` once, then create the PR again. |
 | `git pull` stops with *You have divergent branches and need to specify how to reconcile them* | Add `--no-rebase`: `git pull --no-rebase --no-edit upstream main`. It merges Wopee-io's changes into your branch and keeps your commits. |
@@ -59,7 +59,7 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | `gh` will not work at all on the day (not installed, blocked, wrong account) | Every `gh` step in [`playbook/03-teams.md`](../playbook/03-teams.md) and [`playbook/05-swap.md`](../playbook/05-swap.md) has a *Without `gh`* alternative in the browser. Plain `git` does the rest. |
 | `gh` is old | `gh repo fork` and `gh pr checkout` want a current release. Update before the day: `brew upgrade gh` (macOS), `winget upgrade GitHub.cli` (Windows), or the [releases page](https://github.com/cli/cli/releases). |
 
-## Step 5 — Clone and install
+## Step 3: Clone and install
 
 | What you see | Fix |
 | --- | --- |
@@ -68,25 +68,24 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | `npm install` hangs or fails with `ETIMEDOUT` / `ECONNRESET` | A company proxy. Set it for npm: `npm config set proxy http://proxy:port` and `npm config set https-proxy http://proxy:port`, using your company's proxy address. |
 | `npm install` fails with `EACCES` / permission denied | You cloned into a folder you cannot write to. Clone into your home folder instead. |
 
-## Steps 6 and 7 — Extensions and AI models
+## Steps 4 and 5: Extensions and AI models
 
 | What you see | Fix |
 | --- | --- |
-| Something behaves differently from these pages — an extension, a setting, a chat mode you use at work | Work in the empty `Tesena Fest` profile (setup step 4): **Manage** (gear) → **Profiles** → switch to it. Your own profile stays untouched. |
+| Something behaves differently from these pages — an extension, a setting, a chat mode you use at work | Work in the empty `Vibe Testing` profile (setup step 2): **Manage** (gear) → **Profiles** → switch to it. Your own profile stays untouched. |
 | **Workspace Recommendations** says *No extensions found* | You already have them — type `@installed` and look for **Vercel AI Gateway** and **Playwright Test for VSCode**. Copilot Chat never shows there on current VS Code: it is built in. |
 | No **Workspace Recommendations** section at all | VS Code is not open at the repository root. **File → Open Folder…** → the `tf-2026-vibe-testing` folder itself, not a folder inside it. |
 | No Copilot Chat | It is built into current VS Code. Update VS Code (**Help → Check for Updates**), then sign in with your GitHub account. |
 | The Chat view asks you to sign in | Sign in with your GitHub account. The free Copilot plan is enough. |
-| The model picker has no model, or **GPT-6 Luna · Vercel AI Gateway** is missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For the gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste the key, then **Developer: Reload Window**. |
-| *API key budget exceeded* on a gateway model | Key 1 has hit its spending limit. **Vercel AI Gateway: Manage Authentication** → paste **key 2** from the document you got after the form, then type *Continue.* in the same chat — nothing you did is lost. Both keys out? Switch the model picker to **Auto** (Copilot). |
-| *Your team has restricted access to this model* | The workshop key allows only **GPT-6 Luna** and **Claude Haiku 4.5**. Open the model picker, type `gpt-6-luna`, pick **GPT-6 Luna · Vercel AI Gateway**. |
-| Copilot says you are out of requests | Switch the model picker to **GPT-6 Luna · Vercel AI Gateway** and carry on with the gateway key. |
+| The model picker has no model, or your gateway models are missing from it | With a GitHub account you should see **Auto**; sign in to Copilot if you do not. For gateway models, run **Vercel AI Gateway: Manage Authentication** again and paste your key, then **Developer: Reload Window**. |
+| *API key budget exceeded* on a gateway model | Your gateway key hit its spending limit. Raise it in your Vercel account, or switch the model picker to **Auto** (Copilot), then type *Continue.* in the same chat: nothing you did is lost. |
+| *Your team has restricted access to this model* | Your gateway key does not allow that model. Pick another one, or change the key's settings in your Vercel account. |
+| Copilot says you are out of requests | Switch the model picker to a model from your own gateway key, or wait for your Copilot quota to reset. |
 | Every command the agent runs asks for approval, even `npx playwright` | You are not signed in to GitHub — without a sign-in VS Code applies no pre-approvals. Sign in (account icon, bottom left; Copilot Free is enough), or keep clicking **Allow**. |
 | A *Set BYOK utility models* banner in the chat | Shown when you use the gateway without a GitHub sign-in. Click **Configure** → **Main Agent Model**. Optional: it only switches on chat titles and commit messages. |
-| The chat bar says *GPT-6 Sol* or *GPT 5.6 Luna* | Wrong model — the gateway lists hundreds. Open the picker, type `gpt-6-luna`, pick **GPT-6 Luna · Vercel AI Gateway**. |
 | The model answers with an authentication error | The key was pasted incompletely. It starts with `vck_`. Paste it again. |
 
-## Step 8 — Wopee.io
+## Step 8: Wopee.io
 
 | What you see | Fix |
 | --- | --- |
@@ -94,14 +93,14 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | I lost the API key — it was only shown once | Generate a new one: **More → Settings → API Keys** → **Generate a new key**, and put the new value in `.env`. |
 | Sign-up email never arrives | Check spam, or sign up with the same email as your GitHub account. |
 
-## Step 9 — Download the browser
+## Step 6: Download the browser
 
 | What you see | Fix |
 | --- | --- |
 | `npm run browsers` hangs or fails behind a company proxy | Set `HTTPS_PROXY` before running it: `$env:HTTPS_PROXY="http://proxy:port"` in PowerShell, `export HTTPS_PROXY=http://proxy:port` on macOS or Linux. |
 | Antivirus quarantines the download | Allow the Playwright browser folder, then run `npm run browsers` again. |
 
-## Step 10 — `npm run verify`, check by check
+## Step 7: `npm run verify`, check by check
 
 | Red check | Fix |
 | --- | --- |
@@ -110,7 +109,7 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | Playwright 1.62.0 or newer | Run `npm install` in the repository root. It installs 1.63 or newer. |
 | Browser CLI available | Same as above. Both checks come from the `playwright` package. |
 | Test-runner MCP server available | Same as above. |
-| Chromium downloaded | Run `npm run browsers` (step 9). |
+| Chromium downloaded | Run `npm run browsers` (step 6). |
 | Demo app reachable | Open [foodora.lovable.app](https://foodora.lovable.app/) in your own browser. If it does not load, your network or a company proxy blocks it. Try another network, such as a phone hotspot. |
 
 ## On the workshop day
@@ -131,7 +130,7 @@ Git Bash on Windows and in the macOS terminal. Switch the terminal to PowerShell
 | The answer turns into repeated `</parameter> </invoke>` or "Let me run…", then *Sorry, no response was returned* | The conversation got too long for the model — usually big page snapshots. Start a **New Chat** and send the prompt again. In Exhibit 1, check no MCP server is running first. |
 | The agent answers but cannot edit files or run commands | Set the agent picker in the chat input to **Agent** (not Ask or Plan). |
 | `Executable doesn't exist at …ms-playwright/` | Run `npm run browsers`. |
-| Copilot Chat has no model | The gateway key is not set. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste key 1 from the document you got after submitting the form. |
+| Copilot Chat has no model | Sign in to GitHub Copilot (the free plan is enough), or set your gateway key: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**, and paste it. |
 | MCP tools do not appear in chat | The servers are preset in `.vscode/mcp.json` but never start on their own. `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → the server → **Start Server**. Check the status bar does not say **Restricted Mode** (if it does, trust the folder). Reload the VS Code window and set the agent picker to **Agent**. Ran a bare `init-agents`? Run `npm run agents` instead — it puts the `--config` back. If the **wopee** server also disappeared, run `git restore .vscode/mcp.json` first. |
 | Wopee tools answer `WOPEE_PROJECT_UUID is not set` | Fill in `WOPEE_PROJECT_UUID` and `WOPEE_API_KEY` in `.env` (see [Exhibit 4](../experiments/1_Zoo/4-Wopee/)), then `Ctrl/Cmd+Shift+P` → **MCP: List Servers** → **wopee** → **Start Server** (or **Restart Server**). No `.env`? Run `npm install` once — it creates it. |
 | A test passes locally and fails on the venue wifi | The demo app is live and remote. The configs retry once; if it persists, raise your hand. |
@@ -142,5 +141,4 @@ Still stuck? Ask your neighbour, then raise your hand. Do not spend 10 of your 2
 
 ## Still stuck?
 
-Message me on LinkedIn **before** the workshop, with a screenshot of the red line. A setup
-fixed on Tuesday is worth three fixed at 09:05 on Thursday.
+Book a call at [wopee.io/marcel](https://wopee.io/marcel), with a screenshot of the red line.

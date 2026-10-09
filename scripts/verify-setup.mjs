@@ -105,9 +105,9 @@ if (failed) {
   const passed = results.length - failed
   console.log(`  😬 \x1b[31m${failed} check${failed > 1 ? 's' : ''} failed\x1b[0m, ${passed} of ${results.length} green — almost there!`)
   console.log('  🛠️  Fix the red lines above, then run \x1b[1mnpm run verify\x1b[0m again.')
-  console.log('  💬 Still stuck? Message me on LinkedIn before the workshop — not on the morning of. 🙏\n')
+  console.log('  💬 Still stuck? See docs/setup-troubleshooting.md, or book a call at wopee.io/marcel. 🙏\n')
   process.exit(1)
 }
 
 console.log(`  🎉 \x1b[32m\x1b[1mAll ${results.length} green. You are ready!\x1b[0m 🚀`)
-console.log('  🤖 🐍 🦁 🐒  The Zoo is waiting. See you at Tesena Fest! 👋\n')
+console.log('  🤖 🐍 🦁 🐒  The Zoo is waiting. Start at playbook/README.md 👋\n')

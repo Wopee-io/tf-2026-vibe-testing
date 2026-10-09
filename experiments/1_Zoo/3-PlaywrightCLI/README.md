@@ -118,4 +118,4 @@ npx playwright cli -s=lab close
 [`skills/foodora-order/SKILL.md`](./skills/foodora-order/SKILL.md). Write your own first, then
 compare.
 
-Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#set-up-your-laptop)

@@ -201,4 +201,4 @@ and [the test the generator writes from it](./solutions/order.spec.ts). Run it w
 `npm run solutions` from the repository root. [`rehearsal-notes.md`](./solutions/rehearsal-notes.md)
 lists what the three agents got wrong in our own run — a checklist for yours.
 
-Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#set-up-your-laptop)

@@ -21,7 +21,8 @@ cd experiments/2_API
 
 You do not need to copy an API key. [`fixtures.ts`](./fixtures.ts) opens the app once and reads
 the key the app itself sends — it is public, every visitor's browser has it. Your tests get a
-ready-to-use `foodoraApi` request context.
+ready-to-use `foodoraApi` request context. Set `FOODORA_API_KEY` in `.env` and the fixture uses
+that key instead.
 
 ## Steps
 
@@ -36,14 +37,22 @@ ready-to-use `foodoraApi` request context.
    <details>
    <summary>Stuck? A working request to open in your browser</summary>
 
-   Every restaurant, sorted by name:
+   Every restaurant, sorted by name. Put your key in place of `$FOODORA_API_KEY`:
 
    ```
-   https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/restaurants?select=name,slug,delivery_fee,promo&order=name.asc&apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxY2p3dGZybWF5dmpoa3pnaW91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMjMxMjksImV4cCI6MjA5MTU5OTEyOX0.8rplar0Db8NwpEPPGxn98xkMPipH_MNuzIh7nDhTowA
+   https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/restaurants?select=name,slug,delivery_fee,promo&order=name.asc&apikey=$FOODORA_API_KEY
+   ```
+
+   **Getting the key:** it is the `apikey` header of any request from step 1. It is the app's
+   public key: every visitor's browser sends it. To use it from the terminal, put it in `.env` as
+   `FOODORA_API_KEY=<the key>` (gitignored, never in a tracked file) and run:
+
+   ```bash
+   source .env && curl "https://uqcjwtfrmayvjhkzgiou.supabase.co/rest/v1/restaurants?select=name,slug&apikey=$FOODORA_API_KEY"
    ```
 
    One restaurant: replace `select=name,slug,delivery_fee,promo&order=name.asc` with `slug=eq.2`
-   (Pizza Corner). The key is the app's public one — every visitor's browser sends it.
+   (Pizza Corner).
 
    </details>
 2. **Ask your agent for tests**, in one prompt:
@@ -72,7 +81,7 @@ ready-to-use `foodoraApi` request context.
 
 ## Done when
 
-Your tests run, and one of them checks what the UI shows against what the API says.
+Your tests run, and one of them proves an `FD-05` bug from the API side.
 
 ## Bonus
 
@@ -90,8 +99,7 @@ Your tests run, and one of them checks what the UI shows against what the API sa
 
 1. **Ask your neighbour.** Or your team, after lunch.
 2. **Check [troubleshooting](../../docs/setup-troubleshooting.md#on-the-workshop-day)** — the workshop-day table.
-3. **Shortcut:** [`solutions/restaurants.spec.ts`](./solutions/restaurants.spec.ts) — four
-   read-only tests of the API itself. Run it from this folder with `npx playwright test solutions/`.
-   The UI-against-API test is yours to write.
+3. **Shortcut:** [`solutions/restaurants.spec.ts`](./solutions/restaurants.spec.ts) — five
+   read-only tests, the last one catching the fee bug. Run it from this folder with `npx playwright test solutions/`.
 
 Repo map: [the Zoo exhibits](../1_Zoo/) · [the spec](../../spec/) · [what your agent must know](../../AGENTS.md)

@@ -9,18 +9,15 @@
 1. Say hello to your neighbour. They are your first help today.
 2. Open the repository in VS Code and run `npm run verify` in the terminal. All seven lines must be
    green. Red? It tells you what to fix.
-3. Set up your model — the same for everyone:
-   1. You signed in to GitHub during setup — the account icon, bottom left, shows it.
-   2. Added the key during setup? Skip this. Otherwise take **key 1** from the document you got after
-      submitting the form: `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication** → paste it.
-      Never submitted the form? Do it now — [forms.gle/hU57AS3A5SPrqKWK8](https://forms.gle/hU57AS3A5SPrqKWK8) —
-      the document with the keys comes right after.
-   3. New chat, **Agent**, open the model picker and type `gpt-6-luna`. Pick **GPT-6 Luna · Vercel
-      AI Gateway** — not *GPT-6 Sol*, not *GPT 5.6 Luna*. Check the chat bar says **GPT-6 Luna**,
-      then send "hi". The picker resets with every new chat: pick it again each time.
+3. Set up your model:
+   1. You signed in to GitHub during setup: the account icon, bottom left, shows it.
+   2. New chat, **Agent**, and pick the model you chose in
+      [setup step 5](../README.md#set-up-your-laptop): **Auto** on Copilot Free, a strong model on a
+      paid plan, or a model from your own Vercel AI Gateway key. Send "hi". The picker resets with
+      every new chat: pick it again each time.
 
-   Why not **Auto**? It sometimes hands work to a smaller model that checks its own results less
-   carefully. Auto stays your fallback if the key runs out.
+   **Auto** works for every exercise. A strong model you pick yourself checks its own results more
+   carefully; Auto sometimes hands work to a smaller one.
 4. Learn how to answer the agent's questions. All day, the agent asks before it runs a command or
    uses a tool:
    - **Read what it wants to run, then click the blue Allow.** That is the default answer.
@@ -36,7 +33,7 @@
       [setup troubleshooting](../docs/setup-troubleshooting.md).
    3. Raise your hand, or put your laptop lid half down.
    4. Take the shortcut: open the exhibit's `solutions/` folder and keep going.
-6. Write two numbers on two sticky notes and put them on the board. No judgment.
+6. Write two numbers on two sticky notes and put them on the board (on your own: on paper). No judgment.
    - **DEV:** how long does your team need to ship a feature? From ticket to merged code.
    - **QA:** how long does your team need to verify it? From merged code to "we trust it in
      production".

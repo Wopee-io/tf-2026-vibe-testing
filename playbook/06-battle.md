@@ -25,8 +25,10 @@ Prepare the battle.
 It pulls the stories onto your team branch, points `.env` at the new build and runs your suite
 once. The steps below are the same thing by hand.
 
-1. At 15:15, three new stories — `FD-09`, `FD-10` and `FD-11` — appear in `spec/battle/` in
-   Wopee-io's repository. Get them on your team branch:
+1. The three new stories, `FD-09`, `FD-10` and `FD-11`, are in [`spec/battle/`](../spec/battle/).
+   **On your own?** They are already in your clone: run `git pull` on `main` once, merge it into
+   your branch (`git merge main`), and go to step 2. At the live workshop they appeared at 15:15,
+   and teams pulled them onto their team branch:
 
    ```bash
    git switch team-N
@@ -71,7 +73,8 @@ with a **score of 1–5** on each of — show it with your hand:
 | 🎯 **Accuracy** | Would your suite catch a real regression? |
 | 💡 **Reusability** | Does your `SKILL.md` work beyond today, on another app? |
 
-**You don't vote for your own team.**
+**You don't vote for your own team.** On your own? Score your suite on the same three questions,
+then check it against the [answer key](../docs/battle/answer-key.md): which planted bugs did it catch?
 
 A good 3-minute demo: what you covered, one thing your suite caught, and how your skill helped.
 

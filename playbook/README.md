@@ -19,4 +19,8 @@ stuck. Lost the presenter, or running the day at home? Follow them in order.
 | 16:15 | Wrap-up & Q&A | [`07-wrap.md`](07-wrap.md) |
 | 17:00 | End | |
 
-Not set up yet? Start with [Get ready for the workshop](../README.md#get-ready-for-the-workshop).
+Not set up yet? Start with [Set up your laptop](../README.md#set-up-your-laptop).
+
+**On your own?** The times are from the live day: take the time you need. The team blocks
+(Teams, Build, Swap, Battle) work solo: you are a team of one, in your own clone, and each page
+says what to skip. The Swap needs a second person; skip it or swap skills with a colleague.

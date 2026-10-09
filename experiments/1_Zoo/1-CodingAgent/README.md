@@ -15,10 +15,10 @@ Same task at all four exhibits:
 
 ## Setup
 
-You did most of this before the workshop (see the [root README](../../../README.md#get-ready-for-the-workshop)). Two minutes to confirm:
+You did most of this during setup (see the [root README](../../../README.md#set-up-your-laptop)). Two minutes to confirm:
 
 1. Open the **repository root** in VS Code (not this folder).
-2. Check the extensions: **Vercel AI Gateway** and **Playwright Test for VSCode**. GitHub Copilot
+2. Check the extensions: **Playwright Test for VSCode** (and **Vercel AI Gateway** if you use your own key). GitHub Copilot
    Chat is built into VS Code, so there is nothing to install for it.
 3. Open the Chat view: `Ctrl+Alt+I` (macOS: `Ctrl+Cmd+I`).
 4. In the chat input box, set the **agent picker** to **Agent** (not Ask or Plan). The
@@ -31,19 +31,19 @@ tools for VS Code's Integrated Browser (`workbench.browser.enableChatTools`).
 
 ### Which model
 
-Everyone uses **GPT-6 Luna · Vercel AI Gateway**, with **key 1** from the document you got after submitting the form, signed in to
-GitHub as in the setup. **Auto** (Copilot) is the fallback if the key runs out. **The picker resets with every new
-chat** — pick your model again each time. Add the key once:
+Use the model you set up in [setup step 5](../../../README.md#set-up-your-laptop), signed in to
+GitHub as in the setup. **Auto** on Copilot Free works for the whole exhibit. **The picker resets
+with every new chat**: pick your model again each time.
+
+Bringing your own [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) key? Add it once:
 
 1. `Ctrl/Cmd+Shift+P` → **Vercel AI Gateway: Manage Authentication**
-2. Paste **key 1** from that document. It starts with `vck_`. Key 2 is the backup.
-3. Open a new chat, type `gpt-6-luna` in the model picker and pick **GPT-6 Luna · Vercel AI Gateway**
-   — not *GPT-6 Sol*, not *GPT 5.6 Luna*.
+2. Paste your key. It starts with `vck_`.
+3. Open a new chat and pick a gateway model in the model picker.
 4. Send `hi` and check you get an answer back.
 
-The key is workshop-only and is revoked afterwards — at home, use your own Copilot plan or your
-own [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) key. It is stored by the extension in VS Code's
-secret storage — **do not paste it into a file in this repository.**
+The extension stores the key in VS Code's secret storage. **Do not paste it into a file in this
+repository.**
 
 > The gateway works alongside Copilot, so you can switch between **Auto** and a gateway model in
 > the same chat. Cheaper gateway models exist, but DeepSeek V4.1 Flash broke down (*Sorry, no
@@ -130,4 +130,4 @@ The difference between the two is the whole exhibit.
 repository root. Read them rather than copying them: at the debrief the question is where yours
 differed, not whether you finished.
 
-Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#get-ready-for-the-workshop)
+Repo map: [all four exhibits](../) · [what your agent must know](../../../AGENTS.md) · [setup checklist](../../../README.md#set-up-your-laptop)
