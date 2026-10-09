@@ -68,7 +68,13 @@ Stuck, or want to run this workshop with your own team, on your own app? Book a 
 
 ## License
 
-- **Code** (tests, fixtures, configs, scripts, slide components) is under the [MIT License](LICENSE).
-- **Docs and slides content** (the playbook, spec, exhibit guides, research, skill files, slide
-  text and images) is under [Creative Commons Attribution 4.0](LICENSE-CC-BY-4.0.txt): reuse and
-  adapt it, also commercially, as long as you credit Wopee.io and link back to this repository.
+Everything in this repository (code, tests, docs, playbook, skills, research and slides) is under
+[Creative Commons Attribution-NonCommercial 4.0](LICENSE) (CC BY-NC 4.0).
+
+- **Credit the author:** name "Marcel Veselka, Wopee.io", link back to this repository and say
+  if you changed anything.
+- **No commercial use:** you can learn from it, run it for yourself and share it for free. Running
+  this workshop or material based on it as a paid training, a paid event or part of a paid service
+  needs written permission: [wopee.io/marcel](https://wopee.io/marcel).
+
+Want this workshop for your team, in-house, online or onsite? Same link.

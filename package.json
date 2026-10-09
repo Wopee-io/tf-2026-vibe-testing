@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Vibe Testing Lab \u2014 Tesena Fest 2026. AI coding agents, Playwright Agents, Playwright CLI and Wopee.io on one demo app.",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "engines": {
     "node": ">=20.12"
   },
