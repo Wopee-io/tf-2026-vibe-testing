@@ -6,7 +6,9 @@ A full-day, hands-on workshop on testing web apps with AI, packed into one repos
 on your own. Four AI testing setups go head-to-head on the same demo app, then you build your own
 AI-assisted test suite and a skill your agent can run cold.
 
-**Video:** coming soon. <!-- TODO(Marcel): replace with the YouTube link once the video is live -->
+[![Vibe Testing Lab on YouTube: AI testing agents, MCP and Playwright, the full workshop talk](docs/img/video-thumbnail.png)](https://youtu.be/d-KRA2M5bwE)
+
+**Video:** [watch the talk part on YouTube](https://youtu.be/d-KRA2M5bwE) (about 23 minutes).
 
 ## Who it is for
 
