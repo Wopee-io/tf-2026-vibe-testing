@@ -85,8 +85,7 @@ const wopee = at(4)
       <path d="M385,218 V304 H526" class="arrow dash" fill="none" marker-end="url(#wp-arrow)" />
       <text x="394" y="296" class="d">as an MCP tool</text>
       <rect x="530" y="270" width="350" height="78" rx="6" fill="#000" />
-      <circle cx="566" cy="309" r="31" fill="#ffcc00" />
-      <image href="/img/wopee-head.png" x="543" y="280" width="46" height="61" />
+      <image href="/img/wopee-head.png" x="535" y="279" width="62" height="62" />
       <text x="598" y="298" class="k y">TESTING AGENT · Wopee.io</text>
       <text x="598" y="320" class="d w">maps the app, runs regression —</text>
       <text x="598" y="338" class="d w">on its own, or called by your agent</text>
