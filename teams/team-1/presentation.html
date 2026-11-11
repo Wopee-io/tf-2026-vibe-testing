@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Vojta, Mirek, Jarmila, Igor">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:,">
+  <title>Team 1 — From Spec Gaps to Traceable Tests</title>
+  <style>
+    :root{--bg:#101116;--panel:#1c1d25;--line:#343540;--text:#f7f5f2;--muted:#b6b5c3;--pink:#ff579c;--mint:#a3ebc8;--amber:#ffcf87}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,Helvetica,sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}a{color:var(--mint);text-underline-offset:4px}button:focus-visible,a:focus-visible{outline:3px solid var(--mint);outline-offset:5px}
+    .masthead{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:0 4.5vw;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.brand{color:var(--text);font-weight:800}.brand span{color:var(--pink)}.event{display:flex;gap:24px}.event strong{color:var(--pink)}
+    main{max-width:1600px;margin:auto}.slide{min-height:calc(100svh - 154px);padding:clamp(28px,4.5vh,56px) 4.5vw 32px;display:flex;flex-direction:column;justify-content:center}.slide[hidden]{display:none}.eyebrow{color:var(--pink);font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:800;margin:0 0 18px}h1,h2,h3,p{margin-top:0}h1,h2{font-size:clamp(35px,4.5vw,70px);letter-spacing:-.045em;line-height:1.06;margin-bottom:22px;max-width:1080px}h1{font-size:clamp(48px,6.5vw,100px)}h3{font-size:22px;letter-spacing:-.02em;margin-bottom:12px}p{line-height:1.5}.lead{font-size:clamp(18px,1.8vw,27px);color:var(--muted);max-width:850px;margin-bottom:28px}.pink{color:var(--pink)}.muted{color:var(--muted)}.small{font-size:14px;line-height:1.5}.grid{display:grid;gap:20px}.two{grid-template-columns:1.1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px}.card p:last-child{margin-bottom:0}.card p{color:var(--muted)}.card strong{color:var(--text)}.label{display:block;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted);margin-bottom:12px}.number{font-size:clamp(60px,8vw,120px);line-height:1;font-weight:800;letter-spacing:-.06em;color:var(--pink)}.statline{display:flex;align-items:baseline;gap:15px;margin-bottom:20px}.statline p{font-size:23px;margin:0}.tags{display:flex;gap:9px;flex-wrap:wrap}.tag{padding:7px 11px;border:1px solid var(--line);border-radius:6px;font-size:13px;color:var(--muted)}.tag.high{color:var(--pink)}.tag.med{color:var(--amber)}.tag.low{color:var(--mint)}
+    .quote{font-size:clamp(25px,2.6vw,40px);line-height:1.22;letter-spacing:-.03em;padding-left:23px;border-left:4px solid var(--pink);margin:24px 0}.statement{font-size:19px;color:var(--mint);margin:24px 0 0}.flow{display:grid;grid-template-columns:.85fr 1fr 1fr 1fr;gap:17px;margin:6px 0 25px}.stage{position:relative;padding:24px 20px;background:var(--panel);border-top:3px solid var(--pink);border-radius:0 0 12px 12px}.stage:first-child{border-color:var(--muted)}.stage:not(:last-child):after{content:'→';position:absolute;right:-15px;top:50%;color:var(--pink);z-index:1}.stage h3{font-size:23px}.stage code{font-size:12px;overflow-wrap:anywhere;color:var(--muted)}.stage p{font-size:15px;color:var(--muted);margin-bottom:14px}.step{color:var(--pink);font-size:12px;letter-spacing:.1em;display:block;margin-bottom:17px}.principle{display:flex;gap:15px;align-items:baseline;margin-top:18px;padding-top:17px;border-top:1px solid var(--line);font-size:16px}.principle strong{min-width:118px}.principle span{color:var(--muted)}
+    .example-id{font-family:ui-monospace,monospace;font-size:13px;color:var(--pink);margin-bottom:18px}.boundary{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.boundary div{padding:17px;background:var(--bg);border-radius:9px}.boundary b{font-size:30px;display:block;margin-bottom:7px}.boundary span{font-size:14px;color:var(--muted)}.track{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:4px 0 25px}.track b{font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:9px}.track span{color:var(--pink)}.list{list-style:none;margin:0;padding:0}.list li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted)}.list li:last-child{border:0}.list strong{color:var(--text)}.status{display:inline-block;font-size:10px;letter-spacing:.1em;padding:5px 8px;border-radius:4px;margin-bottom:14px;background:#223c32;color:var(--mint)}.status.pending{background:#3d3021;color:var(--amber)}.timeline{display:flex;gap:0;margin-top:22px}.milestone{flex:1;border-top:2px solid var(--line);padding:13px 12px 0 0;font-size:12px;color:var(--muted)}.milestone b{display:block;color:var(--text);margin-bottom:7px}.milestone code{color:var(--pink);font-size:11px}.value{margin-top:20px;display:flex;gap:25px;flex-wrap:wrap;font-size:14px;color:var(--muted)}.value strong{color:var(--pink)}
+    footer{min-height:78px;border-top:1px solid var(--line);padding:16px 4.5vw;display:flex;align-items:center;gap:20px;position:relative}.footer-title{color:var(--muted);font-size:12px;flex:1}.controls{display:flex;align-items:center;gap:12px}button{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:13px}button:hover{border-color:var(--pink)}button:disabled{opacity:.35;cursor:default}button[aria-pressed=true]{background:var(--pink);color:var(--bg)}#counter{font:13px ui-monospace,monospace;min-width:49px;text-align:center}.progress{position:absolute;left:0;top:-2px;height:3px;background:var(--pink);width:16.666%;transition:width .2s}#notes{margin:0 auto;padding:24px 4.5vw 40px;max-width:1600px;border-top:1px solid var(--line);background:var(--panel)}#notes h2{font-size:20px;letter-spacing:0}#notes p{max-width:1050px;font-size:16px;color:var(--muted)}#notes .sources{font-size:13px;margin-bottom:0}.noscript{padding:15px 4.5vw;color:var(--amber)}
+    @media(min-width:1800px){.slide{padding-left:60px;padding-right:60px}}
+    @media(max-width:760px){.masthead{height:60px}.event span{display:none}.slide{min-height:calc(100svh - 144px);padding-top:30px;justify-content:flex-start}h1{font-size:52px}h2{font-size:37px}.lead{font-size:19px}.two,.three{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.stage:after{display:none}.card{padding:20px}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.principle{display:block}.principle strong{display:block;margin-bottom:5px}.footer-title{display:none}footer{justify-content:space-between;gap:8px}.controls{gap:5px}button{padding:10px}.number{font-size:78px}.value{gap:12px}.quote{font-size:29px}}
+    @media(prefers-reduced-motion:reduce){.progress{transition:none}}
+    @media print{@page{size:landscape;margin:10mm}body{background:white;color:#14141a}.masthead,footer,#notes,.noscript{display:none!important}.slide,.slide[hidden]{display:flex!important;min-height:0;height:180mm;padding:5mm;break-after:page;justify-content:center}.slide:last-child{break-after:auto}h1{font-size:55pt}h2{font-size:35pt}.lead{font-size:17pt}.card,.stage{background:#f5f5f7;border-color:#ccc}.card p,.muted,.lead,.label,.list li,.stage p,.stage code,.milestone,.value,.principle span,.tag{color:#464650}.card strong,.list strong,.milestone b{color:#14141a}.boundary div{background:#eee}.boundary span{color:#444}.number{font-size:70pt}.pink,.eyebrow,.number,.example-id,.step,.value strong{color:#b91d60}.status{color:#145838;background:#e4f4e9}.status.pending{color:#805000;background:#fff0da}.statement{color:#145838}a{color:inherit}.timeline{margin-top:16px}}
+  </style>
+</head>
+<body>
+  <header class="masthead"><div class="brand">Team <span>01</span> / Tesena Fest 2026</div><div class="event"><span>Speed Gap Battle</span><strong>Our approach</strong></div></header>
+  <noscript><p class="noscript">All six slides are shown below. Enable JavaScript for slide navigation and speaker notes.</p></noscript>
+  <main aria-label="Presentation slides">
+    <section class="slide" aria-labelledby="title-1">
+      <p class="eyebrow">01 / The challenge</p>
+      <p class="small muted">Authors: Vojta · Mirek · Jarmila · Igor</p>
+      <h1 id="title-1">What should the<br>test <span class="pink">expect?</span></h1>
+      <p class="lead">From spec gaps to traceable tests.<br>A three-skill workflow for making uncertainty explicit.</p>
+      <div class="grid two">
+        <div class="card"><span class="label">The team problem</span><h3>Incomplete requirements.</h3><p>Boundaries, defaults and state changes can be unclear. A test still needs a pass/fail decision.</p></div>
+        <div class="card"><span class="label">Our design choice</span><h3>Record the reasoning first.</h3><p>Keep a trace from the requirement to the question, the assumption and the test.</p></div>
+      </div>
+      <p class="statement">Expected behaviour comes from requirements and explicit assumptions.</p>
+      <template class="speaker"><p>We started with a problem that appears before writing any test: what should the expected result be when the requirement is incomplete? Defaults, price boundaries and state transitions all require decisions. Our approach records those decisions before inspecting the app. We built three skills to make the reasoning repeatable and reviewable, with a trace from each question to its eventual test. This presentation shows the artefacts we have and how the test-generation stage is designed to work.</p><p class="sources">Sources: <a href="../../plan.md">Design rationale</a> · <a href="../../spec/foodora-spec.md">Product specification</a> · <a href="../../playbook/06-battle.md">Battle criteria</a></p></template>
+    </section>
+    <section class="slide" aria-labelledby="title-2">
+      <p class="eyebrow">02 / The architecture</p>
+      <h2 id="title-2">Three skills.<br><span class="pink">A visible handoff at every step.</span></h2>
+      <div class="flow" aria-label="Specification flows through gap analysis, assumptions and test generation">
+        <div class="stage"><span class="step">INPUT</span><h3>Specification</h3><p>Stories and rules.<br>The source stays unchanged.</p><code>spec.md</code></div>
+        <div class="stage"><span class="step">STEP 1</span><h3>Find gaps</h3><p>What must be clarified to judge the result?</p><code>*.gaps.md</code></div>
+        <div class="stage"><span class="step">STEP 2</span><h3>State assumptions</h3><p>Which decision can we justify in advance?</p><code>*.assumptions.md</code></div>
+        <div class="stage"><span class="step">STEP 3</span><h3>Generate tests</h3><p>Turn rules and assumptions into checks.</p><code>tests/ + *.results.md</code></div>
+      </div>
+      <div class="principle"><strong>SKILL.md</strong><span>Tells the agent when to use the skill, its inputs, steps, outputs and stop conditions.</span></div>
+      <div class="principle"><strong>References</strong><span>Provide the gap checklist, assumption rules and a consistent brief for each test author.</span></div>
+      <div class="principle"><strong>Script</strong><span>Checks that worklist IDs appear in test titles. Assertions still need review.</span></div>
+      <template class="speaker"><p>Each skill has one responsibility and leaves a file for the next step. The first asks questions. The second makes explicit assumptions. The third generates tests from the original specification and those artefacts. A skill file is an instruction set for an agent, not an automatically executing program. Its references hold the detailed checklists and rules. A separate shell script checks ID coverage. The numbered names make the intended order visible, and missing inputs stop the dependent step.</p><p class="sources">Sources: <a href="../../.github/skills/team-1-step1-spec-gaps/SKILL.md">Step 1 skill</a> · <a href="../../.github/skills/team-1-step2-spec-assumptions/SKILL.md">Step 2 skill</a> · <a href="../../.github/skills/team-1-step3-spec-tests/SKILL.md">Step 3 skill</a> · <a href="../../.github/skills/team-1-step3-spec-tests/scripts/check-coverage.sh">Coverage script</a></p></template>
+    </section>
+    <section class="slide" aria-labelledby="title-3">
+      <p class="eyebrow">03 / Step 1 · spec-gaps</p>
+      <h2 id="title-3">Make the unknowns <span class="pink">reviewable.</span></h2>
+      <div class="grid two">
+        <div class="card"><span class="label">Recorded in the gaps report</span><div class="statline"><span class="number">137</span><p>questions</p></div><div class="tags"><span class="tag high">46 high</span><span class="tag med">66 medium</span><span class="tag low">25 low</span></div><p style="margin-top:22px">Across FD-01–FD-08 and cross-cutting concerns. These are specification questions, not confirmed defects.</p></div>
+        <div class="card"><span class="label">What the spec left undefined</span><ul class="list"><li><strong>Adding the same dish again</strong><br>Increase the existing quantity or create a new cart line?<br><small class="pink">GAP-FD-03-03</small></li><li><strong>Rounding the 20% discount</strong><br>Round half up, down, or use banker’s rounding?<br><small class="pink">GAP-FD-05-02</small></li><li><strong>Cart after a successful order</strong><br>Empty the cart or keep its contents?<br><small class="pink">GAP-FD-07-04</small></li></ul></div>
+      </div>
+      <p class="statement">This stage reads the specification. It does not open the app.</p>
+      <template class="speaker"><p>The report records 137 specification questions. Here are three concrete examples. Quick-add puts a dish in the cart, but what happens when the same dish is already there: another line or a higher quantity? The promotion takes twenty percent off, but how should fractions of a cent be rounded? And after a successful order, should the cart be emptied? Each question has a stable GAP ID. These are missing decisions, not confirmed defects. We identify them from the specification without opening the app.</p><p class="sources">Sources: <a href="specs/foodora-spec.gaps.md">137-question report</a> · <a href="../../.github/skills/team-1-step1-spec-gaps/references/gap-checklist.md">Gap checklist</a></p></template>
+    </section>
+    <section class="slide" aria-labelledby="title-4">
+      <p class="eyebrow">04 / Step 2 · spec-assumptions</p>
+      <h2 id="title-4">Give every decision <span class="pink">a paper trail.</span></h2>
+      <div class="grid two">
+        <div class="card"><div class="example-id">GAP-FD-05-01 → ASM-FD-05-01</div><span class="label">Example: interpreting the promotion boundary</span><blockquote class="quote">“once it passes $25”</blockquote><p><strong>Assumption:</strong> the discount applies strictly above $25.00. Rationale: plain reading. Confidence: high.</p><div class="boundary"><div><b>$25.00</b><span>No promotion discount</span></div><div><b>&gt; $25.00</b><span>Promotion applies</span></div></div></div>
+        <div class="card"><span class="label">Decisions for the gaps on slide 3</span><ul class="list"><li><strong>Same dish + same configuration → quantity +1</strong><br>Keep one cart line; two quick-adds give quantity 2.<br><small class="pink">ASM-FD-03-03 · medium confidence</small></li><li><strong>Discount → round to cents, half up</strong><br>A calculated $5.125 discount becomes $5.13.<br><small class="pink">ASM-FD-05-02 · medium confidence</small></li><li><strong>Successful order → empty the cart</strong><br>Cart count becomes 0; the panel shows its empty state.<br><small class="pink">ASM-FD-07-04 · medium confidence</small></li></ul><p class="small" style="margin-top:16px">Rationale for all three: e-commerce convention.<br>Explicit assumptions, awaiting product-owner confirmation.</p></div>
+      </div>
+      <template class="speaker"><p>The promotion example on the left uses a plain reading of the wording. On the right, we answer the three questions from the previous slide: identical quick-adds increase one line’s quantity; discounts round to cents using half-up rounding; and a successful order empties the cart. The rounding amount is an arithmetic illustration, not a test-run result. All three decisions come from e-commerce convention and carry medium confidence. They remain assumptions awaiting product-owner confirmation. Their tests use the assumption tag, and failures become product questions rather than automatically confirmed bugs.</p><p class="sources">Sources: <a href="specs/foodora-spec.assumptions.md">Assumptions report, including ASM-FD-05-01</a> · <a href="../../.github/skills/team-1-step2-spec-assumptions/references/assumption-rules.md">Decision sources and confidence rules</a></p></template>
+    </section>
+    <section class="slide" aria-labelledby="title-5">
+      <p class="eyebrow">05 / Step 3 · spec-tests · designed workflow</p>
+      <h2 id="title-5">Parallel work.<br><span class="pink">Explicit ownership.</span></h2>
+      <div class="track" aria-label="Planned generation phases"><b>Worklist</b><span>→</span><b>Helpers + smoke gate</b><span>→</span><b>Agents by story</b><span>→</span><b>Merge + run</b><span>→</span><b>ID coverage + report</b></div>
+      <div class="grid three">
+        <div class="card"><span class="label">Shared foundation</span><h3>Check the base first.</h3><p>The orchestrator owns shared helpers. Helpers act and read; tests hold expectations. A failed helper smoke test stops fan-out.</p></div>
+        <div class="card"><span class="label">Independent work</span><h3>One story per agent.</h3><p>Up to four at a time, each with its own browser session, test file and output folder. Shared helpers stay read-only.</p></div>
+        <div class="card"><span class="label">Traceable results</span><h3>One rule per test.</h3><p>Rule IDs connect tests to the worklist. <code>@assumption</code> keeps assumed behaviour identifiable. Failures retain their source.</p></div>
+      </div>
+      <p class="statement">App inspection supplies locators and data; expected behaviour keeps its documented source.</p>
+      <template class="speaker"><p>The third skill defines the generation workflow; the final slide now shows a full run of the existing generated suite. It first builds a worklist and validates shared helpers. Then it delegates stories with isolated browser sessions, files and output folders. The orchestrator merges proposed helper changes and runs the suite. The coverage script looks for IDs in test titles, so it checks traceability rather than assertion quality. Assumption tests carry a tag and can be excluded with --grep-invert @assumption. High-confidence failures become likely bugs for triage; medium-confidence failures become product questions.</p><p class="sources">Sources: <a href="../../.github/skills/team-1-step3-spec-tests/SKILL.md">Generation and isolation rules</a> · <a href="../../.github/skills/team-1-step3-spec-tests/references/subagent-brief.md">Subagent brief</a> · <a href="../../.github/skills/team-1-step3-spec-tests/scripts/check-coverage.sh">ID coverage check</a></p></template>
+    </section>
+    <section class="slide" aria-labelledby="title-6">
+      <p class="eyebrow">06 / Test results · 24 September 2026 · 15:43 CEST</p>
+      <h2 id="title-6">167 tests generated.<br><span class="pink">One measured run.</span></h2>
+      <div class="grid three">
+        <div class="card"><span class="label">Passed</span><div class="number" style="color:var(--mint)">110</div><p style="margin-top:16px">Including the shared-helper smoke test.</p></div>
+        <div class="card"><span class="label">Failed</span><div class="number">56</div><p style="margin-top:16px">Test failures requiring triage, including assumptions.</p></div>
+        <div class="card"><span class="label">Skipped / Flaky</span><div class="number" style="color:var(--amber)">1 <span style="font-size:.45em;color:var(--muted)">/ 0</span></div><p style="margin-top:16px">One skipped; none passed only after a retry.</p></div>
+      </div>
+      <div class="value"><span><strong>Scope</strong> · FD-01–FD-08 + cross-cutting</span><span><strong>Runtime</strong> · 4 min 37 sec</span><span><strong>Setup</strong> · Chromium · 4 workers · 1 retry</span></div>
+      <p class="statement">166 story / cross-cutting tests + 1 helper smoke test. Retries counted once.</p>
+      <p class="small muted" style="margin-top:12px;margin-bottom:0">Full run of the existing generated suite. <a href="specs/presentation-test-results.md">Results by story and failed test list ↗</a></p>
+      <template class="speaker"><p>We now have 167 generated tests: 166 covering stories and cross-cutting requirements or assumptions, plus one shared-helper smoke test. In a fresh full-suite Chromium run, 110 passed, 56 failed and one was skipped. There were no flaky outcomes. The smoke test passed. The run used four workers and one configured retry, and took four minutes and 37 seconds. These are final outcomes per test; retries do not inflate the total. The 56 failures still need triage and do not mean 56 confirmed product defects. The linked report preserves the counts by file and the failed test names.</p><p class="sources">Source: <a href="specs/presentation-test-results.md">Full-suite result summary</a>, extracted from the Playwright JSON reporter for the run starting 2026-09-24 at 13:43:37 UTC. The result is a snapshot of the existing suite, not a claim that every assertion or assumption has been validated.</p></template>
+    </section>
+  </main>
+  <footer><div class="progress" aria-hidden="true"></div><span class="footer-title">FROM SPEC GAPS TO TRACEABLE TESTS</span><button id="notes-toggle" type="button" aria-expanded="false" aria-controls="notes" aria-keyshortcuts="n">Speaker notes · N</button><nav class="controls" aria-label="Slide navigation"><button id="prev" type="button" aria-label="Previous slide">←</button><span id="counter" aria-live="polite" aria-atomic="true">01 / 06</span><button id="next" type="button" aria-label="Next slide">→</button></nav></footer>
+  <aside id="notes" aria-label="Speaker notes" hidden><h2>Speaker notes · about 30 seconds</h2><div id="notes-content"></div></aside>
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.slide')];
+      const previous = document.querySelector('#prev');
+      const next = document.querySelector('#next');
+      const toggle = document.querySelector('#notes-toggle');
+      const notes = document.querySelector('#notes');
+      let current = 0;
+      function fromHash() {
+        const match = /^#slide-([1-6])$/.exec(location.hash);
+        return match ? Number(match[1]) - 1 : 0;
+      }
+      function show(index, updateHash = true) {
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((slide, i) => { slide.hidden = i !== current; });
+        previous.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+        document.querySelector('#counter').textContent = `${String(current + 1).padStart(2, '0')} / 06`;
+        document.querySelector('.progress').style.width = `${(current + 1) / slides.length * 100}%`;
+        document.querySelector('#notes-content').replaceChildren(slides[current].querySelector('template').content.cloneNode(true));
+        document.title = `Team 1 · ${current + 1}/6 — ${slides[current].querySelector('h1,h2').innerText.replace(/\s+/g, ' ')}`;
+        if (updateHash) history.replaceState(null, '', `#slide-${current + 1}`);
+        window.scrollTo(0, 0);
+      }
+      function toggleNotes() {
+        notes.hidden = !notes.hidden;
+        toggle.setAttribute('aria-expanded', String(!notes.hidden));
+        toggle.setAttribute('aria-pressed', String(!notes.hidden));
+      }
+      previous.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      toggle.addEventListener('click', toggleNotes);
+      document.addEventListener('keydown', event => {
+        if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest('input,textarea,select,[contenteditable="true"]')) return;
+        if (['ArrowRight','PageDown'].includes(event.key)) { event.preventDefault(); show(current + 1); }
+        else if (['ArrowLeft','PageUp'].includes(event.key)) { event.preventDefault(); show(current - 1); }
+        else if (event.key === 'Home') { event.preventDefault(); show(0); }
+        else if (event.key === 'End') { event.preventDefault(); show(slides.length - 1); }
+        else if (event.key.toLowerCase() === 'n') { event.preventDefault(); toggleNotes(); }
+      });
+      window.addEventListener('hashchange', () => show(fromHash(), false));
+      show(fromHash(), false);
+    })();
+  </script>
+</body>
+</html>
